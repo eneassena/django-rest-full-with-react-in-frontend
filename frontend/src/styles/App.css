@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #edff88;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  margin: auto;
+}
+
+.app>h1 {
+  align-self: flex-start;
+  height: 40px;
+  padding: 10px;
+  margin: 20px 0 30px 10px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+}
+
+.app>table {
+  width: 50%;
+  border-collapse: collapse;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.app>table th, td {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  text-align: center;
+  background: #fff;
+  font-family: normal Arial sans-serif;
+  font-size: 14pt;
+}
