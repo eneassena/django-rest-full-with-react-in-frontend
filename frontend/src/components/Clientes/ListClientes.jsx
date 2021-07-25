@@ -10,12 +10,14 @@ export function ListClientes(props) {
 
   return (
     <>
-      <h1>Lista de Clientes</h1>
+    <div style={{width: '768px', margin: '0 auto' }} >
+      <h1 style={{ margin: '10px auto' }} >Lista de Clientes</h1>
       <table>
         <thead>
           <tr>
             <th>Nome</th>
             <th>Telefone</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +26,7 @@ export function ListClientes(props) {
               <tr key={cliente.id} >
                 <td> {cliente.nome} </td>
                 <td> {cliente.telefone} </td>
+                <td><a href="#">Editar</a></td>
               </tr>
             )) : (
               <tr>
@@ -33,6 +36,7 @@ export function ListClientes(props) {
           }
         </tbody>
       </table>
+      </div>
     </>
   );
 }
