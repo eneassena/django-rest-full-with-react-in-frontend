@@ -1,0 +1,40 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+.row {
+  width: 768px;
+  margin: 0 auto;
+}
+
+.title-box {
+  text-align: center;
+  margin-top: 20px;
+  color: gray;
+}
+
+/* css tabelas */
+.table-box {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 100px;
+  border-collapse: collapse;
+}
+
+.table-box th {
+  height: 50px;
+  color: #5e5f66;
+}
+
+.table-box th:hover {
+  color: #000;
+  transition-duration: 1s;
+}
+
+.table-box th, td {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 5px;
+}
+/* end css tables */
+/* -------------------------------------------------------- */

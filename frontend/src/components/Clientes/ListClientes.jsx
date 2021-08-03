@@ -1,4 +1,19 @@
+// recursos
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import { UpdateCliente } from './UpdateCliente';
+
+import '../styles/stylesheet.css';
+// end recursos
+
+
+
 
 
 export function ListClientes(props) {
@@ -10,9 +25,9 @@ export function ListClientes(props) {
 
   return (
     <>
-    <div style={{width: '768px', margin: '0 auto' }} >
-      <h1 style={{ margin: '10px auto' }} >Lista de Clientes</h1>
-      <table>
+    <div className="row" >
+      <h1 className="title-box" >Lista de Clientes</h1>
+      <table className="table-box" >
         <thead>
           <tr>
             <th>Nome</th>
@@ -26,11 +41,14 @@ export function ListClientes(props) {
               <tr key={cliente.id} >
                 <td> {cliente.nome} </td>
                 <td> {cliente.telefone} </td>
-                <td><a href="#">Editar</a></td>
+                <td>
+                  <Link to={`${cliente.id}`} >Editar</Link>
+
+                </td>
               </tr>
             )) : (
               <tr>
-                <td colSpan="2" >Não há clientes Cadastrado!</td>
+                <td colSpan="3" >Não há clientes Cadastrado!</td>
               </tr>
             )
           }

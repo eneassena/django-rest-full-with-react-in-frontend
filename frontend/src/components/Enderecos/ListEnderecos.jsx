@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import '../styles/stylesheet.css';
+
 
 export function ListEnderecos(props) {
   const [lista, setLista] = useState(props.enderecos || []);
@@ -10,9 +12,9 @@ export function ListEnderecos(props) {
 
   return (
     <>
-      <div style={{ width: '768px', margin: '0 auto' }} >
-        <h1>Lista de Endereços</h1>
-        <table>
+      <div className="row" >
+        <h1 className="title-box" >Lista de Endereços</h1>
+        <table className="table-box" >
           <thead>
             <tr>
               <th>Bairro</th>

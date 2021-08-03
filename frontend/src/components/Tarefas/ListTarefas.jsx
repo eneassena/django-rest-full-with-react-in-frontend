@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import '../styles/stylesheet.css';
+
 export function ListTarefas(props) {
   const [listaTarefas, setListaTarefas] = useState([...props.listaTarefas]);
 
@@ -8,8 +10,9 @@ export function ListTarefas(props) {
   }, [props.listaTarefas]);
 
   return (
-    <div style={{ width: '768px', margin: '0 auto' }} >
-      <table>
+    <div className="row" >
+      <h1 className="title-box" >Lista de Tarefas</h1>
+      <table className="table-box">
         <thead>
           <tr>
             <th>Titulo</th>
@@ -17,6 +20,7 @@ export function ListTarefas(props) {
           </tr>
         </thead>
         <tbody>
+
           {listaTarefas.length > 0 ? listaTarefas.map(tarefa => (
             <tr key={tarefa.id}  >
               <td> {tarefa.title} </td>
@@ -35,4 +39,3 @@ export function ListTarefas(props) {
     </div>
   )
 }
-

@@ -10,9 +10,9 @@ import {
 import './styles/App.css';
 
 import { ListClientes } from './components/Clientes/ListClientes';
+
 import { ListEnderecos } from './components/Enderecos/ListEnderecos';
 import { ListTarefas } from './components/Tarefas/ListTarefas';
-
 
 
 import { TodoService } from './service/TodoTarefa';
@@ -54,8 +54,8 @@ class App extends Component {
   /* Method
    * Busca todos os enderecos cadastrados
    */
-  getEnderecos() {
-    EnderecoService.getEnderecos()
+  async getEnderecos() {
+    await EnderecoService.getEnderecos()
       .then(res => {
         this.setState({ enderecos: res.data });
       })
@@ -67,8 +67,8 @@ class App extends Component {
   /* Method
    * busca todos o clientes cadastrados
    */
-  getClientes() {
-    ClienteService.getClientes()
+  async getClientes() {
+    await ClienteService.getClientes()
       .then(res => {
         this.setState({ clientes: res.data });
       })
@@ -116,16 +116,17 @@ class App extends Component {
   render() {
     const { state } = this;
     return (
+      <>
+      <div className="container" >
       <Router>
       {/* gerando rotas */}
-        <div style={{ width: '768px', margin: '0px auto' }} >
           <nav>
-            <ul>
+            <ul className="menu-ul" >
               <li>
                 <Link to="/list-tarefas">Tarefas</Link>
               </li>
               <li>
-                <Link to="/list-clientes">Clientes</Link>
+                <Link to="/list-cliente">Clientes</Link>
               </li>
               <li>
                 <Link to="/list-enderecos">Endereços</Link>
@@ -134,26 +135,29 @@ class App extends Component {
           </nav>
 
           {/* distribuição dos components das rotas do app */}
-          <div style={{ margin: '50px auto 0 auto' }} >
+          <div className="" >
             <Switch>
 
               <Route path="/list-enderecos">
                 <ListEnderecos enderecos={state.enderecos} />
               </Route>
 
-              <Route path="/list-clientes">
+              <Route path="/list-cliente">
                 <ListClientes clientes={state.clientes} />
               </Route>
 
-              <Route path="/list-tarefas">
+              <Route path="/list-tarefas/" >
                 <ListTarefas listaTarefas={state.todos} />
               </Route>
+
+              <Route path="/:id" components={UpdateCliente} />
 
             </Switch>
           </div>
 
-        </div>
       </Router>
+      </div>
+      </>
     );
   }
 }

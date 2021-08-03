@@ -1,43 +1,81 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-body {
-  background: #edff88;
+
+
+.container {
+  width: 100vw;
+  margin: 0 auto;
 }
+
+.menu-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  border: 1px solid #e7e7e7;
+  background: #f3f3f3;
+
+}
+
+.menu-ul li {
+  float: left;
+}
+
+.menu-ul li a {
+  display: block;
+  color: black;
+  text-align:center;
+  text-decoration: none;
+  padding: 10px;
+
+}
+
+.menu-ul li a:hover {
+  transition: 1s;
+  background-color: #111;
+  text-decoration: underline;
+  color: white;
+}
+
+
+
 
 .app {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100vw;
   height: auto;
-  margin: auto;
+  margin: auto; */
 }
 
 .app>h1 {
-  align-self: flex-start;
+  /* align-self: flex-start;
   height: 40px;
   padding: 10px;
   margin: 20px 0 30px 10px;
   color: rgba(0, 0, 0, 0.8);
-  font-weight: 700;
+  font-weight: 700; */
 }
 
 .app>table {
-  width: 50%;
+  /* width: 50%;
   border-collapse: collapse;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8); */
 }
 
 .app>table th, td {
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  /* border: 1px solid rgba(0, 0, 0, 0.4);
   padding: 5px 10px;
   text-align: center;
   background: #fff;
   font-family: normal Arial sans-serif;
-  font-size: 14pt;
+  font-size: 14pt; */
 }
