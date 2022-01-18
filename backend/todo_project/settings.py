@@ -28,6 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+ADMINS = (
+    ('Tester', 'test@example.com'),
+)
+
+MANAGERS = ADMINS   
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,19 +44,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'rest_framework', #new
-    'corsheaders', # new
+
+    # 3rd-party apps
+    'rest_framework',
+    'rest_framework.authtoken',
     
     # Local
-    'todo.apps.TodoConfig', # new
-    'posts.apps.PostsConfig', # new
+    # 'todo.apps.TodoConfig', # new
+    # 'posts.apps.PostsConfig', #new
+    'authservice.apps.AuthserviceConfig', # new
 
-] 
+]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
     ]
 }
 
@@ -144,3 +159,31 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+SITE_ID = 1
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+MEDIA_ROOT = ''
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = ''
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/media/media.lawrence.com/static/"
+STATIC_ROOT = ''
+
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATIC_URL = '/static/'
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'secret'
+
+# ROOT_URLCONF = 'test'
