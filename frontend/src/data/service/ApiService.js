@@ -14,24 +14,4 @@ export const list = [
         "title":"Learn HTTP",
         "body":"It's important."
     },
-    {
-        "id":4,
-        "title":"Learn HTTP",
-        "body":"It's important."
-    },
-    {
-        "id":5,
-        "title":"Learn HTTP",
-        "body":"It's important."
-    },
-    {
-        "id":6,
-        "title":"Learn HTTP",
-        "body":"It's important."
-    },
-    {
-        "id":7,
-        "title":"Learn HTTP",
-        "body":"It's important."
-    }
 ]

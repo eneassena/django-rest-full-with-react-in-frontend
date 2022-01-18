@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'corsheaders', # new
     
     # Local
-    'todo', #new
-    
-    
+    'todo.apps.TodoConfig', # new
+    'posts.apps.PostsConfig', # new
+
 ] 
 
 REST_FRAMEWORK = {
@@ -126,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 

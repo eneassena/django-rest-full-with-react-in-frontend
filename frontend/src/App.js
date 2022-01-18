@@ -4,27 +4,31 @@ import './ui/style/App.css';
 import { list } from './data/service/ApiService.js';
 import axios from 'axios';
 
-const Listagem = () => {
-    const [data, setData] = useState(list)
+const Listagem = (props) => {
+    const [data, setData] = useState([])
     const keyRecurso = 'todos';
 
-    async function getTodos() {
+    function getTodosLocalStorage() {
+        return JSON.parse(localStorage.getItem(keyRecurso))
+    }
+    async function getTodosApi() {
         await axios.get(
-            "http://127.0.0.1:8000/api"
+            "http://localhost:8000/api/v1/"
         )
         .then(res => {
-            localStorage.setItem(keyRecurso, JSON.stringify(res.data));
-            JSON.parse(localStorage.getItem(keyRecurso)).map(item => {
-                console.log('localStorage: ', item.id, item.title, item.body);                
-            })
             setData(res.data)
+
+            localStorage.setItem(keyRecurso, JSON.stringify(data));
+
+            console.log(data);
         })
         .catch(err => {
             console.log(err);
         })
     }
     useEffect(() => {
-        getTodos();
+        getTodosApi();
+        let datalocal = getTodosLocalStorage();
     }, []);
 
     return (
@@ -54,7 +58,9 @@ const Listagem = () => {
 
 
 
-function App() {
+const App = () => {
+
+
   return (
     <div>
      <h1>Olá</h1>
